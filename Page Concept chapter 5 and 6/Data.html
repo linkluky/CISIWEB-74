@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+
+<body>
+<link href="JavaJam.css" rel="stylesheet">
+<script src="modernizr.custom.05819.js"></script> 
+	<head>
+		<title>Die Anywhere Else</title>
+	</head>
+	<div id="Wrapper">
+		<body>
+			<header><h1>Die Anywhere Else Commission Center</h1></header>
+			 <nav class="topnav">
+			<li> <a class="active" href="Home.html">Home</a> </li>
+				<li> <a href="Artist.html">Artist</a> </li>
+				<li> <a href="Gallery.html">Gallery</a> </li>
+				<li> <a href="Prices.html">Prices</a> </li>
+				<li> <a href="Data.html">Data</a> </li>
+			</nav>
+			<main>
+			<div id="HeroPeace"> 
+			</div>
+			<h2>
+			Secrurity breach
+			</h2>
+		<h6> leaky info</h6>
+		<p>Event thought is on the end of the page due to some buggs... the information is still displayed
+		<br> The information is still bein used the fastest way to block is is with some sort of add blocker like u block 
+<a href="https://ublock.org/">ublock</a> which blocks all cookies and trackes from ones website
+<br>its is also a good idea to mask ones tafic to a vpn <a href="https://nordvpn.com/">nord vpn</a> is a way to masks one connection
+site to another country making almost imposible to ussers to find ones true location.
+<br>Another good idea is using a browser like <a href="https://www.torproject.org/">tor</a>
+similar to the vpn it masks your connection but it does it buy traveling between different routers so your connection alwyas has a diffrent ip
+		</p>
+		   </div>
+        <div id="geo" class="card">
+        <h2>Geolocation Data</h2>
+        <ul id = "geoData"></ul>
+
+    </div>
+        <div id="security" class="card">
+            <h2>Computer Information</h2>
+            <ul id="navigator">
+			</ul>
+        </div>
+			</div>
+			<h3 class="footer"><small><i>
+			Copyrigth © 2019 Die Anywhere Else Inc  <br>
+			<a href="ftovarmaini6806@panther.chaffey.edu">ftovarmaini6806@panther.chaffey.edu</a>&nbsp
+			</h3></small></i>
+		
+
+
+<script>
+    var navigatorList = "<li>";
+    var str = "";
+
+    function navigators(){
+        var list = document.getElementById("navigator");
+        for(var property in navigator){
+            str = "<b>" + property + ":</b> " + navigator[property];
+            navigatorList = navigatorList + str + "</li><li>"
+        }
+        list.innerHTML = navigatorList;
+    }
+    function geoData() {
+     
+        var request = new XMLHttpRequest();
+        var geoList = "<li>";
+        var string = "";
+        request.open('GET', 'http://ip-api.com/json?callback=', true);
+
+        request.onload = function() {
+            if (request.status >= 200 && request.status < 400) {
+                // Success!
+                var data = JSON.parse(request.responseText);
+                for(var prop in data) {
+                    string = "<b>" + prop + ":</b> " + data[prop];
+                    geoList = geoList + string + " </li><li>";
+                }
+                document.getElementById("geoData").innerHTML = geoList;
+            } else {
+                // We reached our target server, but it returned an error
+                console.log("connected error");
+                document.getElementById("geoData").innerHTML = "You are blocking Geo Location Data.  Good work!"
+
+
+            }
+        };
+
+        request.onerror = function() {
+            // There was a connection error of some sort
+            console.log("connection error");
+            document.getElementById("geoData").innerHTML = "You are blocking Geo Location Data.  Good work!"
+
+
+        };
+
+        request.send();
+    }
+    navigators();
+    geoData();
+</script>
+</body>
+
+</html>
