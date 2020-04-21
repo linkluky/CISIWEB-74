@@ -1,0 +1,88 @@
+ <!DOCTYPE html>
+<html>
+<link href="JavaJam.css" rel="stylesheet">
+<script src="modernizr.custom.05819.js"></script> 
+	<head>
+		<title>Die Anywhere Else</title>
+	</head>
+	<div id="Wrapper"> 
+		<body>
+			<header><h1>Die Anywhere Else Commission Center</h1></header>
+			 <nav class="Navigation">
+				<li> <a class="active" href="Home.html">Home</a>  </li>
+				<li> <a href="Artist.html">Artist</a> </li>
+				<li> <a href="Gallery.html">Gallery</a> </li>
+				<li> <a href="Prices.html">Prices</a> </li>
+			</nav>
+			<main>
+			<div id="Heroroad">
+			</div>
+			<h2>Artist With Big Dreams</h2>
+			<p1>
+				Welcome to Die Anywhere Else a small artist commission site that what to bring all your fantasy characters to reality. With this in mind we created this site to make it easier for us the artist to get in contact to all the passionate day dreamers that want their stories told
+				<br> <br>
+				For this reason we carry the most deverce amount of new and upcoming artist and the lowest prices in the completion. So that even the smallest ideas get the drawing they dissrve
+			</p1>
+			 <ul Class="Description">
+				<li>New Artists</li>
+				<li>Great Prices</li>
+				<li>Giveaways </li>
+			</ul> 
+			<h3>Come and visit our studio</h3>
+			 <div class="Directions">
+				7740 Rock Highway <br>
+				Edison Bay, AL 54210 <br>
+				888-555-5555 <br>
+			</div>
+			<h3 class="Footer">
+			Copyrigth © 2019 Die Anywhere Else Inc <br>
+			<a href="ftovarmaini6806@panther.chaffey.edu">ftovarmaini6806@panther.chaffey.edu</a>&nbsp
+			</h3>
+			<h4>
+			<form>
+				<input type="checkbox" id="item1" value="8" />
+				<label for="item1">Sketch ($8.00)</label>
+				<input type="checkbox" id="item2" value="9" />
+				<label for="item2">Sketch With Color ($9.00)</label>
+				<input type="checkbox" id="item3" value="8" />
+				<label for="item3">Full Drawing ($13.00)</label>
+				<input type="checkbox" id="item3" value="8" />
+				<label for="item4">Full Drawing + Shading and Background ($25.00)</label>
+				<input type="checkbox" id="item3" value="8" />
+				<label for="item5">Combo ($30.00)</label>
+				<input type="submit" id="submit" value="Submit" />
+			</form>
+			</h5>
+			<script>
+		function calcTotal(){
+			var itemTotal = 0;
+			var itemDiscount
+			var item1 = document.getElementById("item1"); 
+			var item2 = document.getElementById("item2"); 
+			var item3 = document.getElementById("item3"); 
+			var item4 = document.getElementById("item4"); 
+			var item5 = document.getElementById("item5"); 
+			(item1.checked) ? (itemTotal += 8) : (itemTotal += 0); 
+			(item2.checked) ? (itemTotal += 9) : (itemTotal += 0); 
+			(item3.checked) ? (itemTotal += 13) : (itemTotal += 0); 
+			(item4.checked) ? (itemTotal += 25) : (itemTotal += 0);
+			(item5.checked) ? (itemTotal += 30) : (itemTotal += 0);
+			var salesTaxRate = 0.07; 
+				if (itemTotal > 24) {
+				itemDiscount = itemTotal * .2;
+				itemTotal = itemTotal - itemDiscount;
+				}
+				else {
+				alert("Get a 20% discount when doing a purchase of $24");
+				}
+			var orderTotal = (itemTotal + (itemTotal * salesTaxRate)); 
+			alert("Your order total is $" + orderTotal); 
+		}
+		document.getElementById("submit").  
+		addEventListener("click", calcTotal, false); 
+   </script>
+		</body>
+	</div>	
+	</main>
+	<h5>Francis Daniel Tovar Maini</h5>
+</html>

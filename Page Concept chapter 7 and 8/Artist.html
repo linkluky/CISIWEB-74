@@ -1,0 +1,85 @@
+ <!DOCTYPE html>
+<html>
+<link href="JavaJam.css" rel="stylesheet">
+<script src="modernizr.custom.05819.js"></script> 
+	<head>
+		<title>Die Anywhere Else</title>
+	</head>
+	<div id="Wrapper">
+		<body>
+			<header><h1>Die Anywhere Else Commission Center</h1></header>
+			 <nav class="topnav">
+			<li> <a class="active" href="Home.html">Home</a> </li>
+				<li> <a href="Artist.html">Artist</a> </li>
+				<li> <a href="Gallery.html">Gallery</a> </li>
+				<li> <a href="Prices.html">Prices</a> </li>
+				<li> <a href="Data.html">Data</a> </li>
+			</nav>
+			<main>
+			<div id="HeroPeace"> 
+			</div>
+			<h2>
+			Newest Arrivials
+			</h2>
+		<h6> Seelmaru</h6>
+		<div align="center">
+			<iframe width="560" height="315" src="https://www.youtube.com/embed/HA4AHhnkAr8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+			</iframe>
+		</div>
+		    <div id="container">
+        <form>
+            <label for="name">Artists</label>
+            <input type="text" id="name" placeholder="Enter a framework" autocomplete="off">
+
+            <button id="btnAdd">Add</button>
+
+            <label for="list">Artist List</label>
+            <select id="list" name="list" multiple>
+
+            </select>
+            <button id="btnRemove">Remove Selected Artists</button>
+        </form>
+    </div>
+
+			<h3 class="footer"><small><i>
+			Copyrigth © 2019 Die Anywhere Else Inc  <br>
+			<a href="ftovarmaini6806@panther.chaffey.edu">ftovarmaini6806@panther.chaffey.edu</a>&nbsp
+			</h3></small></i>
+ <script>
+        const btnAdd = document.querySelector('#btnAdd');
+        const btnRemove = document.querySelector('#btnRemove');
+        const sb = document.querySelector('#list');
+        const name = document.querySelector('#name');
+        btnAdd.onclick = (e) => {
+            e.preventDefault();
+
+            if (name.value == '') {
+                alert('Please enter the name.');
+                return;
+            }
+            const option = new Option(name.value, name.value);
+            sb.add(option, undefined);
+
+            name.value = '';
+            name.focus();
+        };
+        btnRemove.onclick = (e) => {
+            e.preventDefault();
+            let selected = [];
+
+            for (let i = 0; i < sb.options.length; i++) {
+                selected[i] = sb.options[i].selected;
+            }
+            let index = sb.options.length;
+            while (index--) {
+                if (selected[index]) {
+                    sb.remove(index);
+                }
+            }
+        };
+    </script>
+		</body>
+	</div>
+	</main>
+	<h5>Francis Daniel Tovar Maini</h5>	
+</html> 

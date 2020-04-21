@@ -1,0 +1,173 @@
+ <!DOCTYPE html>
+<html>
+<link href="JavaJam.css" rel="stylesheet">
+<script src="modernizr.custom.05819.js"></script> 
+	<head>
+		<title>Die Anywhere Else</title>
+	</head>
+	<div id="Wrapper">
+		<body>
+			<header><h1>Die Anywhere Else Commission Center</h1></header>
+			 <nav class="topnav">
+				<li> <a class="active" href="Home.html">Home</a> </li>
+				<li> <a href="Artist.html">Artist</a> </li>
+				<li> <a href="Gallery.html">Gallery</a> </li>
+				<li> <a href="Prices.html">Prices</a> </li>
+				<li> <a href="Data.html">Data</a> </li>
+			</nav>
+			<main>
+			<div id="Heromug"> 
+			</div>
+			<h2>
+			Prices and Commission
+			</h2>
+			<p2>
+			Our rotating artist selection provides customers with the lowest prices on the market
+			if you believe that is not true bring us another verified commision prices and we will challenge
+			it by 5%!!!
+			</p2>
+			<dl Class="Menu">
+			 <table border="2">
+			 <tr>
+		<th colspan = "6"> Prices </th>
+	</tr>
+	<tr>
+		<td>Sketch</td>
+			<td> $10 USD </td>
+	</tr>
+	<tr> 
+	<td>Full Color</td>
+	<td> $15 USD</td>
+	</tr>
+	<tr>
+	<td>Shaded</td>
+	<td> $20 USD</td>
+	</tr>
+	<tr>
+	<td>Shaded and full Bacgraound</td>
+	<td> $25 - $50 USD</td>
+	</tr>
+			</table>
+      <form action = "/cgi-bin/test.cgi" name = "myForm" onsubmit = "return(validate());">
+         <table cellspacing = "2" cellpadding = "2" border = "1">
+            
+            <tr>
+               <td align = "right">Name</td>
+               <td><input type = "text" name = "Name" /></td>
+            </tr>
+            
+            <tr>
+               <td align = "right">EMail</td>
+               <td><input type = "text" name = "EMail" /></td>
+            </tr>
+            
+            <tr>
+               <td align = "right">Zip Code</td>
+               <td><input type = "text" name = "Zip" /></td>
+            </tr>
+			
+            <tr>
+               <td align = "right"></td>
+               <td><input type = "submit" value = "Submit" /></td>
+            </tr>
+            
+         </table>
+      </form>
+	  <table border="1">
+  <tbody>
+    <tr class="header">
+      <th>&nbsp;</th>
+      <th>YYYY</th>
+      <th>MM</th>
+      <th>DD</th>
+    </tr>
+    <tr>
+      <th>FROM</th>
+      <td><input  id="FromYear"  placeholder="YYYY" value="2017"></td>
+      <td><input  id="FromMonth" placeholder="MM" value="3"></td>
+      <td><input  id="FromDay"   placeholder="DD" value="18"></td>
+    </tr>
+    <tr>
+      <th>TO</th>
+      <td><input  id="ToYear"  placeholder="YYYY" value="2017"></td>
+      <td><input  id="ToMonth" placeholder="MM" value="3"></td>
+      <td><input  id="ToDay"   placeholder="DD" value="29"></td>
+	</tr>
+    <tr>
+      <th colspan="4">
+        <button id="calculate">Calculate</button>
+      </th>
+    </tr>
+    <tr>
+       <th>RESULT</th>
+       <td><input  id="ResultYear"  placeholder="YYYY" value=""></td>
+       <td><input  id="ResultMonth" placeholder="MM" value=""></td>
+       <td><input  id="ResultDay"   placeholder="DD" value=""></td>
+     </tr>
+  </tbody>
+</table>
+<script>
+// i used window.alert to verify that the props where being assied to the correct variables
+// i also made parts of my code comments to isolate where i had messed up in my code
+      function validate() {
+         if( document.myForm.Name.value == "" ) {
+            alert( "Please provide your name!" );
+            document.myForm.Name.focus() ;
+            return false;
+         }
+         if( document.myForm.EMail.value == "" ) {
+            alert( "Please provide your Email!" );
+            document.myForm.EMail.focus() ;
+            return false;
+         }
+         if( document.myForm.Zip.value == "" || isNaN( document.myForm.Zip.value ) ||
+            document.myForm.Zip.value.length != 5 ) {
+            
+            alert( "Please provide a 5 digit Zipcode." );
+            document.myForm.Zip.focus() ;
+            return false;
+         }
+         return( true );
+      }
+	  function get(ID){
+  return document.getElementById(ID);
+}
+
+function calculateDiff(){
+  var FromYear 	= get('FromYear').value;
+  var FromMonth = get('FromMonth').value;
+  var FromDay 	= get('FromDay').value;
+
+  var ToYear 	= get('ToYear').value;
+  var ToMonth 	= get('ToMonth').value;
+  var ToDay 	= get('ToDay').value;
+	
+  var date1 	= new Date(FromYear,FromMonth,FromDay);   /*Create Date Object From date*/
+  var date2 	= new Date(ToYear,ToMonth,ToDay);         /*Create Date Object To date*/
+  var diff 	= new Date(date2.getTime() - date1.getTime());
+
+  get('ResultYear').value  = diff.getUTCFullYear()-1970;  /*Calculate year difference*/
+  get('ResultMonth').value = diff.getUTCMonth();          /*Count month difference*/
+  get('ResultDay').value   = diff.getUTCDate()-1;         /*Count day difference*/
+}
+
+calculateDiff();
+
+var calculate = get('calculate');
+
+calculate.onclick = function(){
+  calculateDiff();
+}
+</script>	  
+
+<li>
+			<h3 class="footer"><small><i>
+			Copyrigth © 2019 Die Anywhere Else Inc  <br>
+			<a href="ftovarmaini6806@panther.chaffey.edu">ftovarmaini6806@panther.chaffey.edu</a>&nbsp
+			</h3></small></i>
+</li>						
+		</body>
+	</div>
+	</main>
+	<h5>Francis Daniel Tovar Maini</h5>	
+</html> 
